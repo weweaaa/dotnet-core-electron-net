@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ElectronNET.API;
 
 namespace dotnet_core_electron_net
 {
@@ -51,6 +52,8 @@ namespace dotnet_core_electron_net
             {
                 endpoints.MapRazorPages();
             });
+
+            Task.Run(async () => await Electron.WindowManager.CreateWindowAsync());
         }
     }
 }
